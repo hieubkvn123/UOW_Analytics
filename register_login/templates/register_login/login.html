@@ -1,0 +1,34 @@
+{% extends 'register_login/base.html'%}
+
+{% load static%}
+
+{% block title %} Login {% endblock %}
+{% block style %}
+  .form_group{
+    text-align : center;
+    padding : 12px;
+    padding-top : 100px;
+  }
+  .registration {display : inline-block; border-radius : 10px; background-color:rgb(10,32,66); background-image : url({% static 'uow_batch.png'%});background-repeat: no-repeat; background-position: center;}
+  td {padding : 25px; width : 500px}
+  th {font-family : courier; font-size : 20px;color:green}
+{% endblock %}
+{%block home_url_ %}/{% endblock %} <!--home url at the uow logo-->
+{%block home_url %}/{% endblock %}
+{% block content %}
+<div class = 'form_group'>
+  <form method = 'POST' action = '' class = 'registration' style = 'padding : 8px'>
+    {% csrf_token %}
+    <table> {{form.as_table}} </table>
+    <input type = 'submit' value = 'Login' class="btn btn-primary" style = 'width:48%'/>
+    <input type = 'reset' value = 'Reset' class="btn btn-primary" style = 'width:48%'/>
+  </form>
+  <p class = 'message {{msg_type}}'>{{msg}}</p>
+</div>
+{% endblock %}
+
+{% block nav_bar %}
+<li class="nav-item active">
+  <a class="nav-link" href="login">Login <span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}

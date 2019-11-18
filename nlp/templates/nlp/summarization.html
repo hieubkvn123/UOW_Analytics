@@ -1,0 +1,34 @@
+{% extends 'nlp/account.html' %}
+{% block script %}
+$(document).ready(function(){
+  $("#summarize").click(function(){
+    $.post("",
+    {
+      text : document.getElementById("summarization_area").innerHTML
+    },
+    function(data,status){
+    });
+  });
+});
+{% endblock %}
+
+{% block main %}
+<h3 style = "text-decoration:underline">Input</h3>
+<p>For summarization, copy and paste your paragraph/essay here</p>
+<form action = '' method = 'post' style = "text-align:center" style="padding:8px;width=100%">
+  {% csrf_token %}
+
+  {{form}}
+  <button id = "summarize" class = 'btn btn-primary' style = "margin-top : 12px; width: 100%">Summarize</button>
+</form>
+<hr style = "width:100%">
+<h3 style = "text-decoration:underline">Output</h3>
+{% if request.method == 'POST'%}
+<h4 style = "color:red;margin-left:12px">Original</h4>
+{{original}}
+<br><p>Word Count : {{original_wordcount}} | Char Count : {{original_charcount}}</p>
+<h4 style = "color:green;margin-left:12px">Summary</h4>
+{{summary}}
+<br><p>Word Count : {{summary_wordcount}} | Char Count : {{summary_charcount}}</p>
+{% endif %}
+{% endblock %}

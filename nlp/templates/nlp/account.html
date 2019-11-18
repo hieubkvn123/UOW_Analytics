@@ -1,7 +1,7 @@
 {% extends 'register_login/base.html'%}
 {% load static %}
 
-{% block style%}
+{% block style %}
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 300px; /* Set the width of the sidebar */
@@ -142,6 +142,13 @@
       </ul>
     </p>
   {% endif %}
-  {{main}}
+  <h1>Natural Language Processing (NLP)</h1>
+  <br><p>Natural Language Processing (NLP) in machine learning term refers to a set of algorithms
+    that helps computer understand and perform actions based on a given text like summarization, sentimental analysis, spam detection,...</p>
+  <hr style = "length:100%">
+
+  {% block main %}
+
+  {% endblock %}
 </div>
 {% endblock %}

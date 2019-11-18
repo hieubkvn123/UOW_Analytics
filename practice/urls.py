@@ -19,7 +19,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("register_login.urls"))
+    path('', include("register_login.urls")),
+    path('nlp/', include("nlp.urls")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
